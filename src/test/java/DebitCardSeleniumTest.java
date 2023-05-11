@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-class DebitCardSeleniumTest {
+public class DebitCardSeleniumTest {
     private WebDriver driver;
 
     @BeforeAll
@@ -26,6 +26,7 @@ class DebitCardSeleniumTest {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
@@ -39,7 +40,7 @@ class DebitCardSeleniumTest {
     }
 
     @Test
-    void shouldFillByValidData() {
+    void shouldCardOrder() {
 
         driver.findElement (By.cssSelector("[data-test-id=name] input")).sendKeys("Заглада Алёна");
         driver.findElement (By.cssSelector("[data-test-id=phone] input")).sendKeys("+79608309609");
